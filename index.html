@@ -176,6 +176,16 @@
     font-style: italic;
     color: var(--teal-light);
   }
+  .hero-headline .typewriter { white-space: nowrap; }
+  .tw-caret {
+    display: inline-block;
+    width: 3px;
+    height: 0.78em;
+    margin-left: 4px;
+    background: var(--teal-light);
+    vertical-align: baseline;
+    animation: caretBlink 0.85s steps(1) infinite;
+  }
   .hero-sub {
     font-size: 16px;
     font-weight: 300;
@@ -748,6 +758,9 @@
     50% { left: 100%; }
     100% { left: 100%; }
   }
+  @keyframes caretBlink {
+    50% { opacity: 0; }
+  }
 
   /* Scroll reveal */
   .reveal {
@@ -969,7 +982,7 @@
   <h1 class="hero-headline">
     <span class="word" style="animation-delay:0.5s">Your&nbsp;</span>
     <span class="word" style="animation-delay:0.65s">business,&nbsp;</span>
-    <span class="word" style="animation-delay:0.8s"><em>online</em>&nbsp;</span>
+    <span class="word" style="animation-delay:0.8s"><em class="typewriter"><span id="twText"></span><span class="tw-caret"></span></em>&nbsp;</span>
     <span class="word" style="animation-delay:0.95s">in&nbsp;</span>
     <span class="word" style="animation-delay:1.1s">days.</span>
   </h1>
@@ -1129,42 +1142,42 @@ we've helped.</h2>
   </div>
   <div class="portfolio-grid">
     <div class="portfolio-card reveal">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#f9e8d0,#e8c99a)"></div>
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#557373,#272401)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">Jewellery</div>
         <div class="portfolio-name">Josi Gems</div>
       </div>
     </div>
     <div class="portfolio-card reveal reveal-delay-1">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#d0e8f0,#9ac4d4)"></div>
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#6e9494,#3a5252)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">Home Services</div>
         <div class="portfolio-name">AirPro Services</div>
       </div>
     </div>
     <div class="portfolio-card reveal reveal-delay-2">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#f0d0e8,#d49ac4)"></div>
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#DFE5F3,#557373)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">Beauty & Wellness</div>
         <div class="portfolio-name">Lora Spa</div>
       </div>
     </div>
     <div class="portfolio-card reveal reveal-delay-3">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#d0f0d8,#9ad4a8)"></div>
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#F2EFEA,#3d3a08)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">F&B</div>
         <div class="portfolio-name">Ispu Kitchen</div>
       </div>
     </div>
     <div class="portfolio-card reveal reveal-delay-4">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#e8d0f0,#c49ad4)"></div>
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#DFE5F3,#272401)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">Education</div>
         <div class="portfolio-name">Brightways Learning</div>
       </div>
     </div>
     <div class="portfolio-card reveal reveal-delay-1">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#f0e8d0,#d4c49a)"></div>
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#6e9494,#3d3a08)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">Renovation</div>
         <div class="portfolio-name">Haven Interiors</div>
@@ -1266,6 +1279,28 @@ we've helped.</h2>
       ring.style.height = '36px';
     });
   });
+
+  // Hero headline typewriter
+  const twText = document.getElementById('twText');
+  if (twText) {
+    const words = ['online', 'discovered', 'booked', 'trusted'];
+    let wi = 0, ci = 0, deleting = false;
+    const tick = () => {
+      const current = words[wi];
+      ci += deleting ? -1 : 1;
+      twText.textContent = current.slice(0, ci);
+      if (!deleting && ci === current.length) {
+        deleting = true;
+        return setTimeout(tick, 1900);
+      }
+      if (deleting && ci === 0) {
+        deleting = false;
+        wi = (wi + 1) % words.length;
+      }
+      setTimeout(tick, deleting ? 55 : 95);
+    };
+    setTimeout(tick, 1500); // start after the headline finishes animating in
+  }
 
   // Nav scroll
   const nav = document.getElementById('nav');
