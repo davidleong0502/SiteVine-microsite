@@ -12,10 +12,10 @@
   :root {
     --lavender: #DFE5F3;
     --teal: #557373;
-    --olive: #272401;
+    --olive: #20271a;
     --cream: #F2EFEA;
     --black: #0D0D0D;
-    --teal-light: #6e9494;
+    --teal-light: #8fb3b3;
     --olive-light: #3d3a08;
   }
 
@@ -25,7 +25,7 @@
     font-family: 'Inter', sans-serif;
     background: var(--cream);
     color: var(--black);
-    overflow-x: hidden;
+    overflow-x: clip;
     cursor: none;
   }
 
@@ -121,6 +121,8 @@
   }
   .nav-cta:hover { background: var(--olive) !important; transform: translateY(-1px) !important; }
   .nav-cta::after { display: none !important; }
+  .mobile-nav { display: none; }
+  .mobile-menu-btn { display: none; }
 
   /* ── HERO ── */
   .hero {
@@ -189,7 +191,7 @@
   .hero-sub {
     font-size: 16px;
     font-weight: 300;
-    color: rgba(242,239,234,0.6);
+    color: rgba(242,239,234,0.78);
     line-height: 1.7;
     max-width: 480px;
     margin-bottom: 52px;
@@ -432,14 +434,14 @@
     right: -24px;
     width: 48px;
     height: 1px;
-    background: rgba(242,239,234,0.15);
+    background: rgba(242,239,234,0.22);
   }
   .process-step:last-child::after { display: none; }
   .step-num {
     font-family: 'Cormorant Garant', serif;
     font-size: 52px;
     font-weight: 300;
-    color: rgba(242,239,234,0.08);
+    color: rgba(143,179,179,0.45);
     line-height: 1;
     margin-bottom: 20px;
   }
@@ -453,7 +455,7 @@
   .step-desc {
     font-size: 14px;
     font-weight: 300;
-    color: rgba(242,239,234,0.5);
+    color: rgba(242,239,234,0.75);
     line-height: 1.7;
   }
 
@@ -667,7 +669,7 @@
   .cta-sub {
     font-size: 16px;
     font-weight: 300;
-    color: rgba(242,239,234,0.55);
+    color: rgba(242,239,234,0.75);
     margin-bottom: 52px;
     line-height: 1.7;
   }
@@ -872,7 +874,7 @@
 
     /* Typography scale */
     .section-title { font-size: clamp(30px, 8vw, 44px); margin-bottom: 40px; }
-    .hero-bg-text { font-size: clamp(80px, 22vw, 140px); }
+    .hero-bg-text { display: none; }
 
     /* Grids → single column */
     .services-grid { grid-template-columns: 1fr; gap: 2px; }
@@ -929,7 +931,7 @@
 
 <!-- Nav -->
 <!-- Mobile nav overlay -->
-<div class="mobile-nav" id="mobileNav" style="display:none">
+<div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" id="mobileClose" aria-label="Close menu">&times;</button>
   <a href="#services" onclick="closeMobileNav()">Services</a>
   <a href="#process" onclick="closeMobileNav()">How it works</a>
@@ -970,7 +972,7 @@
     <a href="#portfolio">Work</a>
     <a href="#contact" class="nav-cta">Get Started</a>
   </div>
-  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" style="display:none">
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -1066,7 +1068,7 @@
 <!-- Process -->
 <section class="process" id="process">
   <div class="section-eyebrow reveal">The process</div>
-  <h2 class="section-title reveal">A straightforward process,<br><em style="font-style:italic;color:#6e9494">start to finish.</em></h2>
+  <h2 class="section-title reveal">A straightforward process,<br><em style="font-style:italic;color:#8fb3b3">start to finish.</em></h2>
   <div class="process-steps">
     <div class="process-step reveal reveal-delay-1">
       <div class="step-num">01</div>
