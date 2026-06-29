@@ -413,6 +413,38 @@
     margin-left: 4px;
   }
 
+  /* ── WHAT WE DO ── */
+  .offering {
+    padding: 140px 60px;
+    background: var(--lavender);
+  }
+  .offering-lead {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(39,36,1,0.72);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 64px;
+  }
+  .offering-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .offering-item h3 {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 23px;
+    font-weight: 400;
+    color: var(--olive);
+    margin-bottom: 12px;
+  }
+  .offering-item p {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(39,36,1,0.62);
+    line-height: 1.7;
+  }
+
   /* ── HOW IT WORKS ── */
   .process {
     padding: 140px 60px;
@@ -538,6 +570,17 @@
     background: var(--lavender);
     aspect-ratio: 4/3;
     cursor: none;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  /* Real case studies: use a screenshot by setting an inline
+     background-image on .portfolio-card-bg, e.g.
+     style="background:url('/work/josi-gems.jpg') center/cover" */
+  .portfolio-card-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .portfolio-card-inner {
     width: 100%;
@@ -784,7 +827,8 @@
     nav { padding: 24px 32px; }
     nav.scrolled { padding: 16px 32px; }
     .hero { padding: 120px 32px 80px; }
-    .services, .process, .why, .portfolio, .testimonials, .cta-section { padding: 100px 32px; }
+    .offering, .services, .process, .why, .portfolio, .testimonials, .cta-section { padding: 100px 32px; }
+    .offering-list { gap: 32px; }
     footer { padding: 48px 32px; }
     .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
     .process-step::after { display: none; }
@@ -869,7 +913,8 @@
     .hero-scroll { left: 20px; bottom: 24px; }
 
     /* Sections */
-    .services, .process, .portfolio, .testimonials, .cta-section { padding: 72px 20px; }
+    .offering, .services, .process, .portfolio, .testimonials, .cta-section { padding: 72px 20px; }
+    .offering-list { grid-template-columns: 1fr; gap: 28px; }
     .why { padding: 72px 20px; grid-template-columns: 1fr; gap: 40px; }
 
     /* Typography scale */
@@ -979,7 +1024,7 @@
 
 <!-- Hero -->
 <section class="hero" id="home">
-  <div class="hero-tag">Websites Built with Care, Delivered Fast</div>
+  <div class="hero-tag">We design &amp; build websites for your business</div>
   <h1 class="hero-headline">
     <span class="word" style="animation-delay:0.5s">Your&nbsp;</span>
     <span class="word" style="animation-delay:0.65s">business,&nbsp;</span>
@@ -1033,6 +1078,27 @@
     <span class="marquee-item">Clinics</span><span class="marquee-dot">·</span>
   </div>
 </div>
+
+<!-- What we do -->
+<section class="offering" id="what-we-do">
+  <div class="section-eyebrow reveal">What we do</div>
+  <h2 class="section-title reveal">A web studio that designs<br>and builds your site, end to end.</h2>
+  <p class="offering-lead reveal">SiteVine is a web design and development service for small businesses. We plan, design, write the copy, and build a fast, modern website for you — then launch it on your own domain. You don&#39;t need to be technical or know anything about websites. From the first conversation to going live, we handle the whole thing.</p>
+  <div class="offering-list">
+    <div class="offering-item reveal reveal-delay-1">
+      <h3>Designed &amp; built for you</h3>
+      <p>Every site is custom-designed and hand-built around your business — no cookie-cutter templates and no drag-and-drop page builders.</p>
+    </div>
+    <div class="offering-item reveal reveal-delay-2">
+      <h3>Words that do the work</h3>
+      <p>We write all of your copy so it sounds like you and actually speaks to the customers you want to reach.</p>
+    </div>
+    <div class="offering-item reveal reveal-delay-3">
+      <h3>Launched on your domain</h3>
+      <p>We connect your domain, put the site live, and make sure it looks right on every screen — usually within 48 hours.</p>
+    </div>
+  </div>
+</section>
 
 <!-- Services -->
 <section class="services" id="services">
@@ -1107,8 +1173,8 @@
     <div class="why-item reveal reveal-delay-1">
       <div class="why-icon">02</div>
       <div>
-        <div class="why-title">Built safe by design</div>
-        <div class="why-text">We build front-end only websites. No databases, no login systems, no backend complexity. There is nothing to hack because there is nothing to attack. That is a deliberate design choice, not a limitation.</div>
+        <div class="why-title">Secure by design</div>
+        <div class="why-text">We build front-end-only websites — no databases or login systems to expose — which keeps the attack surface minimal. We follow security best practices and keep things updated to manage vulnerabilities. A deliberate design choice, not a limitation.</div>
       </div>
     </div>
     <div class="why-item reveal reveal-delay-2">
@@ -1138,13 +1204,24 @@ we've helped.</h2>
     </div>
   </div>
   <div class="portfolio-grid">
-    <div class="portfolio-card reveal">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#557373,#272401)"></div>
+    <!--
+      REAL CASE STUDY TEMPLATE — copy this block to add a live client site:
+      <a class="portfolio-card reveal" href="https://client-site.com" target="_blank" rel="noopener">
+        <div class="portfolio-card-bg" style="background:url('/work/filename.jpg') center/cover"></div>
+        <div class="portfolio-card-inner">
+          <div class="portfolio-tag">Category</div>
+          <div class="portfolio-name">Client Name</div>
+        </div>
+      </a>
+      Drop screenshots in a /work/ folder. Leave off the href to keep a card non-clickable.
+    -->
+    <a class="portfolio-card reveal" href="#" target="_blank" rel="noopener">
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#557373,#20271a)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">Jewellery</div>
         <div class="portfolio-name">Josi Gems</div>
       </div>
-    </div>
+    </a>
     <div class="portfolio-card reveal reveal-delay-1">
       <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#6e9494,#3a5252)"></div>
       <div class="portfolio-card-inner">
@@ -1167,7 +1244,7 @@ we've helped.</h2>
       </div>
     </div>
     <div class="portfolio-card reveal reveal-delay-4">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#DFE5F3,#272401)"></div>
+      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#DFE5F3,#20271a)"></div>
       <div class="portfolio-card-inner">
         <div class="portfolio-tag">Education</div>
         <div class="portfolio-name">Business name</div>
