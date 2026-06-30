@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>sitevine | Websites for small businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -26,7 +26,6 @@
     background: var(--cream);
     color: var(--black);
     overflow-x: clip;
-    cursor: none;
   }
 
   /* ── CUSTOM CURSOR ── */
@@ -53,7 +52,7 @@
     transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
     opacity: 0.6;
   }
-  body:hover .cursor { opacity: 1; }
+  .cursor, .cursor-ring { display: none; }
 
   /* ── NAV ── */
   nav {
@@ -194,21 +193,10 @@
     color: rgba(242,239,234,0.78);
     line-height: 1.7;
     max-width: 480px;
-    margin-bottom: 22px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s ease 1.2s forwards;
-  }
-  .hero-note {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--teal-light);
-    line-height: 1.6;
-    max-width: 480px;
     margin-bottom: 48px;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeUp 0.8s ease 1.35s forwards;
+    animation: fadeUp 0.8s ease 1.2s forwards;
   }
   .hero-actions {
     display: flex;
@@ -373,7 +361,6 @@
     position: relative;
     overflow: hidden;
     transition: background 0.4s ease;
-    cursor: none;
   }
   .service-card::before {
     content: '';
@@ -430,6 +417,125 @@
     font-weight: 300;
     opacity: 0.6;
     margin-left: 4px;
+  }
+
+  /* ── PRICING EXTRAS ── */
+  .includes {
+    margin-top: 2px;
+    padding: 36px 40px;
+    background: var(--lavender);
+  }
+  .includes-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+  .includes-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 32px;
+  }
+  .includes-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(39,36,1,0.8);
+    line-height: 1.5;
+  }
+  .includes-list .fit-icon { width: 17px; height: 17px; margin-top: 1px; color: var(--teal); }
+
+  .pricing-block { margin-top: 90px; }
+  .pricing-block-head {
+    font-family: 'Cormorant Garant', serif;
+    font-size: clamp(28px, 3.2vw, 38px);
+    font-weight: 400;
+    color: var(--olive);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .pricing-block-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(39,36,1,0.62);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 36px;
+  }
+  .price-list { border-top: 1px solid rgba(39,36,1,0.12); }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(39,36,1,0.12);
+  }
+  .price-row-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--olive);
+  }
+  .price-row-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(39,36,1,0.55);
+    margin-top: 4px;
+    line-height: 1.5;
+    max-width: 460px;
+  }
+  .price-row-desc strong {
+    font-weight: 700;
+    color: var(--olive);
+  }
+  .price-row-amount {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--olive);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .price-row-amount span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    opacity: 0.6;
+    margin-left: 3px;
+  }
+  .callout {
+    margin-top: 40px;
+    padding: 28px 32px;
+    border-left: 3px solid var(--teal);
+    background: var(--lavender);
+  }
+  .callout-title {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--olive);
+    margin-bottom: 6px;
+  }
+  .callout-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(39,36,1,0.68);
+    line-height: 1.65;
+  }
+  .pricing-footnote {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(39,36,1,0.12);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(39,36,1,0.6);
+    line-height: 1.75;
+    max-width: 660px;
   }
 
   /* ── IS SITEVINE RIGHT FOR YOU ── */
@@ -627,7 +733,6 @@
     overflow: hidden;
     background: var(--lavender);
     aspect-ratio: 4/3;
-    cursor: none;
     display: block;
     text-decoration: none;
     color: inherit;
@@ -830,19 +935,6 @@
     gap: 10px;
   }
   .btn-email:hover { border-color: var(--teal-light); color: var(--teal-light); transform: translateY(-2px); }
-  .cta-email-note {
-    margin-top: 32px;
-    font-size: 14px;
-    font-weight: 300;
-    color: rgba(242,239,234,0.6);
-  }
-  .cta-email-link {
-    color: var(--teal-light);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.3s ease;
-  }
-  .cta-email-link:hover { color: var(--cream); }
 
   /* ── FOOTER ── */
   footer {
@@ -1006,6 +1098,9 @@
     .offering, .fit, .services, .process, .portfolio, .testimonials, .cta-section { padding: 72px 20px; }
     .offering-list { grid-template-columns: 1fr; gap: 28px; }
     .fit-grid { grid-template-columns: 1fr; gap: 36px; }
+    .includes { padding: 28px 24px; }
+    .includes-list { grid-template-columns: 1fr; gap: 12px; }
+    .price-row-amount { font-size: 21px; }
     .why { padding: 72px 20px; grid-template-columns: 1fr; gap: 40px; }
 
     /* Typography scale */
@@ -1109,16 +1204,18 @@
 
 <!-- Hero -->
 <section class="hero" id="home">
-  <div class="hero-tag">We design &amp; build websites for your business</div>
+  <div class="hero-tag">Web design &amp; development studio</div>
   <h1 class="hero-headline">
-    <span class="word" style="animation-delay:0.5s">Your&nbsp;</span>
-    <span class="word" style="animation-delay:0.65s">business,&nbsp;</span>
-    <span class="word" style="animation-delay:0.8s"><em class="typewriter"><span id="twText"></span><span class="tw-caret"></span></em>&nbsp;</span>
-    <span class="word" style="animation-delay:0.95s">in&nbsp;</span>
-    <span class="word" style="animation-delay:1.1s">days.</span>
+    <span class="word" style="animation-delay:0.45s">Websites&nbsp;</span>
+    <span class="word" style="animation-delay:0.55s">that&nbsp;</span>
+    <span class="word" style="animation-delay:0.65s">bring&nbsp;</span>
+    <span class="word" style="animation-delay:0.75s">your&nbsp;</span>
+    <span class="word" style="animation-delay:0.85s">small&nbsp;</span>
+    <span class="word" style="animation-delay:0.95s">business&nbsp;</span>
+    <span class="word" style="animation-delay:1.05s">more&nbsp;</span>
+    <span class="word" style="animation-delay:1.15s"><em class="typewriter"><span id="twText"></span><span class="tw-caret"></span></em></span>
   </h1>
-  <p class="hero-sub">Every site we make is designed and written from scratch for your business. No templates, no shortcuts. Just a clean, fast website that looks right the moment someone lands on it.</p>
-  <p class="hero-note">We build websites that promote your business, not run it.</p>
+  <p class="hero-sub">We design and build clean, fast promotional websites for small businesses, so the customers searching for you can find you, trust you, and get in touch.</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Get Your Site</a>
     <a href="#portfolio" class="btn-ghost">See our work</a>
@@ -1195,22 +1292,106 @@
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">01</div>
       <div class="service-name">Basic Site</div>
-      <div class="service-desc">3 to 4 pages, designed and written for your business. Mobile-friendly, WhatsApp contact, enquiry form. A solid foundation that looks the part.</div>
+      <div class="service-desc">3 to 4 pages. A clean, professional foundation for your business, with everything you need to look the part and start taking enquiries.</div>
       <div class="service-price">$449 <span>SGD</span></div>
     </div>
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">02</div>
       <div class="service-name">Standard Site</div>
-      <div class="service-desc">5 to 6 pages. Everything in Basic, plus a photo gallery, Google Maps, and on-page SEO groundwork so customers can actually find you.</div>
+      <div class="service-desc">5 to 6 pages. More room to show what you offer, with a photo gallery, Google Maps, and on-page SEO groundwork so customers can find you.</div>
       <div class="service-price">$649 <span>SGD</span></div>
     </div>
     <div class="service-card reveal reveal-delay-3">
       <div class="service-num">03</div>
       <div class="service-name">Premium Site</div>
-      <div class="service-desc">7 to 8 pages. Everything in Standard, plus carefully written copy tailored to your business, subtle animations, and a more considered visual finish.</div>
+      <div class="service-desc">7 to 8 pages. Our most complete package, with carefully tailored copy, subtle animations, and a more considered visual finish.</div>
       <div class="service-price">$949 <span>SGD</span></div>
     </div>
   </div>
+
+  <!-- All packages include -->
+  <div class="includes reveal">
+    <div class="includes-title">Every package includes</div>
+    <ul class="includes-list">
+      <li><svg class="fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Custom design</li>
+      <li><svg class="fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Custom copy, written for you</li>
+      <li><svg class="fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Mobile-friendly on every screen</li>
+      <li><svg class="fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>WhatsApp button and enquiry form</li>
+      <li><svg class="fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One revision round before launch</li>
+      <li><svg class="fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Domain connected at launch</li>
+    </ul>
+  </div>
+
+  <!-- Add-ons -->
+  <div class="pricing-block reveal">
+    <div class="pricing-block-head">Add-ons</div>
+    <p class="pricing-block-sub">Optional extras at fixed prices. Add any of these to a package whenever you need them.</p>
+    <div class="price-list">
+      <div class="price-row">
+        <div><div class="price-row-name">Extra page</div></div>
+        <div class="price-row-amount">$100<span>/page</span></div>
+      </div>
+      <div class="price-row">
+        <div><div class="price-row-name">Extra revision round (pre-launch)</div></div>
+        <div class="price-row-amount">$60</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-row-name">Logo design</div>
+          <div class="price-row-desc">Simple, single concept, one revision.</div>
+        </div>
+        <div class="price-row-amount">$200</div>
+      </div>
+      <div class="price-row">
+        <div><div class="price-row-name">Rush delivery (under 3 days)</div></div>
+        <div class="price-row-amount">+$180</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-row-name">SEO setup</div>
+          <div class="price-row-desc">Sitemap and search console.</div>
+        </div>
+        <div class="price-row-amount">$120</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post-launch changes -->
+  <div class="callout reveal">
+    <div class="callout-title">Changes after launch</div>
+    <div class="callout-text">$60/hr, billed in 30-minute minimum blocks per request. Send us what you need and we&#39;ll take care of it.</div>
+  </div>
+
+  <!-- Ongoing / recurring -->
+  <div class="pricing-block reveal">
+    <div class="pricing-block-head">Keeping your site running</div>
+    <p class="pricing-block-sub">Once you&#39;re live, you can leave the upkeep to us or handle it yourself. Either way is fine.</p>
+    <div class="price-list">
+      <div class="price-row">
+        <div>
+          <div class="price-row-name">Domain and hosting custodian fee</div>
+          <div class="price-row-desc">We manage your domain and hosting for you. <strong>Subject to prevailing domain and hosting costs, which vary by provider and extension.</strong></div>
+        </div>
+        <div class="price-row-amount">$150 to $250<span>/year</span></div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-row-name">Monthly maintenance</div>
+          <div class="price-row-desc">Updates, monitoring, and minor edits.</div>
+        </div>
+        <div class="price-row-amount">$60<span>/month</span></div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-row-name">Manage it yourself</div>
+          <div class="price-row-desc">Prefer to handle your own domain and hosting? We&#39;ll connect it once at launch.</div>
+        </div>
+        <div class="price-row-amount">No fee</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="pricing-footnote reveal">Anything beyond the agreed scope is billed separately. We always confirm scope in writing before starting, so there are no surprises.</p>
 </section>
 
 <!-- Is sitevine right for you -->
@@ -1417,7 +1598,6 @@ we've helped.</h2>
       <span class="copy-label">Email Us</span>
     </a>
   </div>
-  <p class="cta-email-note reveal">Or write to us at <a href="mailto:sitevine.support@gmail.com" class="cta-email-link" data-copy-email><span class="copy-label">sitevine.support@gmail.com</span></a></p>
 </section>
 
 <!-- Footer -->
@@ -1473,7 +1653,7 @@ we've helped.</h2>
   // Hero headline typewriter
   const twText = document.getElementById('twText');
   if (twText) {
-    const words = ['online', 'discovered', 'booked', 'trusted'];
+    const words = ['customers.', 'enquiries.', 'bookings.', 'sales.'];
     let wi = 0, ci = 0, deleting = false;
     const tick = () => {
       const current = words[wi];
@@ -1565,7 +1745,7 @@ we've helped.</h2>
       const label = el.querySelector('.copy-label') || el;
       const original = label.textContent;
       const done = () => {
-        label.textContent = 'Copied to clipboard';
+        label.textContent = 'Email copied!';
         setTimeout(() => { label.textContent = original; }, 2200);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
