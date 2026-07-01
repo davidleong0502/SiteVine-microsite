@@ -155,38 +155,44 @@
     color: var(--teal);
     margin-bottom: 60px;
   }
-  .founders-grid {
+  .founders-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 80px;
+    align-items: start;
+  }
+  .team-photo {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 2px;
+    display: block;
+  }
+  .founders-bios {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
   }
   .founder-card {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-  }
-  .founder-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(85,115,115,0.18);
-    border: 1.5px solid rgba(85,115,115,0.3);
-    flex-shrink: 0;
+    gap: 8px;
   }
   .founder-name {
     font-family: 'Cormorant Garant', serif;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 300;
     color: var(--olive);
     line-height: 1;
-    margin-bottom: 6px;
   }
   .founder-title {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--teal);
+    margin-bottom: 12px;
   }
   .founder-bio {
     font-size: 15px;
@@ -324,7 +330,7 @@
     .page-hero { padding: 140px 20px 72px; }
     .about-intro { padding: 72px 20px; }
     .founders { padding: 72px 20px; }
-    .founders-grid { grid-template-columns: 1fr; gap: 48px; }
+    .founders-layout { grid-template-columns: 1fr; gap: 40px; }
     .about-closing { padding: 72px 20px; }
     footer { padding: 40px 20px; flex-direction: column; gap: 20px; text-align: center; }
     .footer-links { justify-content: center; flex-wrap: wrap; }
@@ -386,24 +392,22 @@
 <!-- Founders -->
 <section class="founders">
   <div class="founders-eyebrow">The team</div>
-  <div class="founders-grid">
+  <div class="founders-layout">
 
-    <div class="founder-card reveal">
-      <div class="founder-photo" id="dave-photo" aria-label="Photo of Dave"></div>
-      <div>
+    <img src="images/founders.jpg" alt="Dave and Malcolm, co-founders of sitevine" class="team-photo reveal">
+
+    <div class="founders-bios">
+      <div class="founder-card reveal">
         <div class="founder-name">Dave</div>
         <div class="founder-title">Co-founder, Technical Head</div>
+        <p class="founder-bio">Studying Data Science &amp; AI at NTU, currently a Software Engineer Intern at Allen &amp; Gledhill. An avid photographer, and previously spent 4 years as President of A Little Change, a non-profit empowering youth through community initiatives. Driven by helping businesses grow through better online presence.</p>
       </div>
-      <p class="founder-bio">Studying Data Science &amp; AI at NTU, currently a Software Engineer Intern at Allen &amp; Gledhill. An avid photographer, and previously spent 4 years as President of A Little Change, a non-profit empowering youth through community initiatives. Driven by helping businesses grow through better online presence.</p>
-    </div>
 
-    <div class="founder-card reveal reveal-delay-1">
-      <div class="founder-photo" id="malcolm-photo" aria-label="Photo of Malcolm"></div>
-      <div>
+      <div class="founder-card reveal reveal-delay-1">
         <div class="founder-name">Malcolm</div>
         <div class="founder-title">Co-founder, Business Head</div>
+        <p class="founder-bio">Studying Sports Science, and a former national cyclist who knows what it takes to compete at the top level. Also spent time trading before co-founding sitevine. Leads client outreach and sales, drawn to the field because it puts success in your own hands rather than someone else's. When he's not closing deals, he's in the gym.</p>
       </div>
-      <p class="founder-bio">Studying Sports Science, and a former national cyclist who knows what it takes to compete at the top level. Also spent time trading before co-founding sitevine. Leads client outreach and sales, drawn to the field because it puts success in your own hands rather than someone else's. When he's not closing deals, he's in the gym.</p>
     </div>
 
   </div>
