@@ -1004,6 +1004,64 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
+  /* ── FAQ ── */
+  .faq {
+    padding: 140px 60px;
+    background: var(--cream);
+  }
+  .faq .section-title { margin-bottom: 64px; }
+  .faq-list { max-width: 760px; }
+  .faq-item { border-bottom: 1px solid rgba(32,39,26,0.14); }
+  .faq-item:first-child { border-top: 1px solid rgba(32,39,26,0.14); }
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-align: left;
+    gap: 24px;
+  }
+  .faq-question-text {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--olive);
+    line-height: 1.2;
+  }
+  .faq-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    position: relative;
+    color: var(--teal);
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+  .faq-icon::before { width: 14px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .faq-icon::after  { width: 1.5px; height: 14px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .faq-item.open .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
+  .faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1);
+  }
+  .faq-answer-inner {
+    padding-bottom: 28px;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(32,39,26,0.68);
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
   /* ── TABLET (max 1024px) ── */
   @media (max-width: 1024px) {
     nav { padding: 24px 32px; }
@@ -1095,7 +1153,8 @@
     .hero-scroll { left: 20px; bottom: 24px; }
 
     /* Sections */
-    .offering, .fit, .services, .process, .portfolio, .testimonials, .cta-section { padding: 72px 20px; }
+    .offering, .fit, .services, .process, .portfolio, .testimonials, .faq, .cta-section { padding: 72px 20px; }
+    .faq-question-text { font-size: 19px; }
     .offering-list { grid-template-columns: 1fr; gap: 28px; }
     .fit-grid { grid-template-columns: 1fr; gap: 36px; }
     .includes { padding: 28px 24px; }
@@ -1578,6 +1637,105 @@ we've helped.</h2>
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-eyebrow reveal">Common questions</div>
+  <h2 class="section-title reveal">Questions,<br>Answered.</h2>
+  <div class="faq-list">
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">Who owns the website and domain?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">You do. Once you've signed on and paid, the domain and Cloudflare account are registered under your details, not ours. Hosting is something we help set up, not something we hold onto — you can move it anytime.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">What if I don't like the design?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">We send you a preview link before anything goes live, and every package includes a revision round so you can request changes. Nothing launches until you're happy. Extra revision rounds are available if you need more.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-2">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">Do I need to know anything technical?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">No. Send us your photos, logo, and a few notes about your business — WhatsApp works fine — and we handle the build, domain setup, and going live.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-3">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">Do you build online stores?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">No — we build promotional and brochure-style websites designed to bring in enquiries and calls, not e-commerce platforms with checkout and inventory.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">What's included in the price?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">Every package includes a custom-built site, mobile-responsive design, domain connection, and one revision round before launch. Higher tiers add more pages and features — see our pricing section for the full breakdown. Ongoing maintenance is available separately as a monthly add-on.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">How do I pay?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">Payment is via PayNow, collected before handover once you've approved the site.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-2">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">How long does it take?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">Most sites are ready within 3–5 working days of us receiving your photos and notes, depending on package size and how quickly we get your feedback on the preview.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-3">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">What happens if my needs change after launch?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">Send us what you need and we'll quote it. Small changes are billed hourly, or you can go on monthly maintenance and we handle updates for you.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false">
+        <span class="faq-question-text">What if I want to move or leave later?</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">No hard feelings, no lock-in. Your domain and files are yours — we hand everything over cleanly so you or another developer can take it from there.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="cta-bg">GO</div>
@@ -1731,6 +1889,26 @@ we've helped.</h2>
   function closeMobileNav() {
     mobileNav.classList.remove('open');
   }
+
+  // FAQ accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      faqItems.forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        i.querySelector('.faq-answer').style.maxHeight = '';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
 
   // Disable cursor on touch devices
   if ('ontouchstart' in window) {
