@@ -315,6 +315,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
   }
   .hero-video-overlay {
     position: absolute;
@@ -1961,7 +1962,7 @@ we've helped.</h2>
     if (reduceMotion) {
       wrap.style.backgroundImage = 'url(assets/hero-poster.jpg)';
       wrap.style.backgroundSize = 'cover';
-      wrap.style.backgroundPosition = 'center';
+      wrap.style.backgroundPosition = 'center 30%';
       return;
     }
     var vid = document.createElement('video');
