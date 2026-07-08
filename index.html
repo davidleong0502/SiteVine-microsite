@@ -1947,13 +1947,12 @@ we've helped.</h2>
     });
   });
 
-  // Ambient hero video — inject only on desktop & no reduced-motion preference
+  // Ambient hero video — inject on all screens unless reduced-motion is preferred
   (function () {
     var wrap = document.getElementById('heroVideoWrap');
     if (!wrap) return;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var isMobile = window.matchMedia('(max-width: 767px)').matches;
-    if (reduceMotion || isMobile) {
+    if (reduceMotion) {
       wrap.style.backgroundImage = 'url(assets/hero-poster.jpg)';
       wrap.style.backgroundSize = '115% 115%';
       wrap.style.backgroundPosition = '0 0';
