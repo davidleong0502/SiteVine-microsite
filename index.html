@@ -133,6 +133,7 @@
     padding: 0 60px;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
   }
   .hero-bg-text {
     position: absolute;
@@ -291,6 +292,34 @@
     color: rgba(242,239,234,0.4);
     margin-top: 4px;
   }
+
+  /* ── HERO VIDEO BACKGROUND ── */
+  .hero-video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 115%;
+    height: 115%;
+    object-fit: cover;
+  }
+  .hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(32,39,26,0.70) 0%, rgba(32,39,26,0.55) 100%);
+  }
+  .hero-tag, .hero-headline, .hero-sub, .hero-actions, .hero-stats {
+    position: relative;
+    z-index: 2;
+  }
+  .hero-bg-text { z-index: 2; }
+  .hero-scroll { z-index: 2; }
 
   /* ── MARQUEE ── */
   .marquee-section {
@@ -1265,6 +1294,9 @@
 
 <!-- Hero -->
 <section class="hero" id="home">
+  <div class="hero-video-wrap" id="heroVideoWrap" aria-hidden="true">
+    <div class="hero-video-overlay"></div>
+  </div>
   <div class="hero-tag">Web design &amp; development studio</div>
   <h1 class="hero-headline">
     <span class="word" style="animation-delay:0.45s">Websites&nbsp;</span>
@@ -1914,6 +1946,34 @@ we've helped.</h2>
       }
     });
   });
+
+  // Ambient hero video — inject only on desktop & no reduced-motion preference
+  (function () {
+    var wrap = document.getElementById('heroVideoWrap');
+    if (!wrap) return;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (reduceMotion || isMobile) {
+      wrap.style.backgroundImage = 'url(assets/hero-poster.jpg)';
+      wrap.style.backgroundSize = '115% 115%';
+      wrap.style.backgroundPosition = '0 0';
+      return;
+    }
+    var vid = document.createElement('video');
+    vid.className = 'hero-video';
+    vid.loop = true;
+    vid.muted = true;
+    vid.autoplay = true;
+    vid.playsInline = true;
+    vid.setAttribute('aria-hidden', 'true');
+    vid.poster = 'assets/hero-poster.jpg';
+    var src = document.createElement('source');
+    src.src = 'assets/hero.webm';
+    src.type = 'video/webm';
+    vid.appendChild(src);
+    wrap.insertBefore(vid, wrap.firstChild);
+    vid.play().catch(function () {});
+  }());
 </script>
 </body>
 </html>
