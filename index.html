@@ -309,10 +309,11 @@
   }
   .hero-video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 115%;
-    height: 115%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
   .hero-video-overlay {
@@ -1959,8 +1960,8 @@ we've helped.</h2>
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) {
       wrap.style.backgroundImage = 'url(assets/hero-poster.jpg)';
-      wrap.style.backgroundSize = '115% 115%';
-      wrap.style.backgroundPosition = '0 0';
+      wrap.style.backgroundSize = 'cover';
+      wrap.style.backgroundPosition = 'center';
       return;
     }
     var vid = document.createElement('video');
