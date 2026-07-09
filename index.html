@@ -820,6 +820,19 @@
     transition: all 0.3s ease 0.05s;
   }
   .portfolio-card:hover .portfolio-tag { opacity: 1; transform: translateY(0); }
+  .portfolio-sample-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 3;
+    background: var(--olive);
+    color: var(--cream);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+  }
   .portfolio-name {
     font-family: 'Cormorant Garant', serif;
     font-size: 22px;
@@ -1593,41 +1606,48 @@
   <div class="portfolio-header">
     <div>
       <div class="section-eyebrow reveal">Recent Work</div>
-      <h2 class="section-title reveal" style="margin-bottom:0">A few businesses
-we've helped.</h2>
+      <h2 class="section-title reveal" style="margin-bottom:0">A few of the sites
+we've built.</h2>
+      <p class="services-note reveal" style="margin-top:16px;margin-bottom:0">Concept projects, built to show what we can do.</p>
     </div>
   </div>
   <div class="portfolio-grid">
     <!--
       REAL CASE STUDY TEMPLATE - copy this block to add a live client site:
-      <a class="portfolio-card reveal" href="https://client-site.com" target="_blank" rel="noopener">
-        <div class="portfolio-card-bg" style="background:url('/work/filename.jpg') center/cover"></div>
+      <a class="portfolio-card reveal" href="https://client-site.com" target="_blank" rel="noopener nofollow">
+        <div class="portfolio-card-bg">
+          <img src="img/work-filename.webp" alt="Descriptive alt text" loading="lazy" width="0000" height="0000">
+        </div>
+        <div class="portfolio-sample-tag">Sample project</div>
         <div class="portfolio-card-inner">
           <div class="portfolio-tag">Category</div>
           <div class="portfolio-name">Client Name</div>
         </div>
       </a>
-      Drop screenshots in a /work/ folder. Leave off the href to keep a card non-clickable.
+      Drop screenshots in the /img folder. Leave off the href to keep a card non-clickable.
     -->
-    <a class="portfolio-card reveal" href="#" target="_blank" rel="noopener">
-      <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#557373,#20271a)"></div>
+    <a class="portfolio-card reveal" href="https://quillet-barbers.pages.dev" target="_blank" rel="noopener nofollow">
+      <div class="portfolio-card-bg">
+        <img src="img/work-quillet.webp" alt="Quillet Barbers homepage, a dark barber shop website" loading="lazy" width="3020" height="1718">
+      </div>
+      <div class="portfolio-sample-tag">Sample project</div>
       <div class="portfolio-card-inner">
-        <div class="portfolio-tag">Jewellery</div>
-        <div class="portfolio-name">Josi Gems</div>
+        <div class="portfolio-tag">Barber</div>
+        <div class="portfolio-name">Quillet Barbers</div>
       </div>
     </a>
     <div class="portfolio-card reveal reveal-delay-1">
       <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#6e9494,#3a5252)"></div>
       <div class="portfolio-card-inner">
-        <div class="portfolio-tag">Home Services</div>
-        <div class="portfolio-name">Business name</div>
+        <div class="portfolio-tag">Cafe</div>
+        <div class="portfolio-name">Sundry Kopi</div>
       </div>
     </div>
     <div class="portfolio-card reveal reveal-delay-2">
       <div class="portfolio-card-bg" style="background:linear-gradient(135deg,#DFE5F3,#557373)"></div>
       <div class="portfolio-card-inner">
-        <div class="portfolio-tag">Beauty & Wellness</div>
-        <div class="portfolio-name">Business name</div>
+        <div class="portfolio-tag">Interior Design</div>
+        <div class="portfolio-name">Nerith Interiors</div>
       </div>
     </div>
   </div>
