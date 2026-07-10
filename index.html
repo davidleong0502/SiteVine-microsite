@@ -791,13 +791,12 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 32px;
-    background: linear-gradient(to top, rgba(39,36,1,0.7) 0%, transparent 60%);
-    transform: translateY(20px);
+    background: linear-gradient(to top, rgba(39,36,1,0.88) 0%, rgba(39,36,1,0.55) 40%, rgba(39,36,1,0.12) 68%, transparent 85%);
     transition: transform 0.4s ease;
     position: relative;
     z-index: 2;
   }
-  .portfolio-card:hover .portfolio-card-inner { transform: translateY(0); }
+  .portfolio-card:hover .portfolio-card-inner { transform: translateY(-6px); }
   .portfolio-card-bg {
     position: absolute;
     inset: 0;
@@ -815,11 +814,9 @@
     text-transform: uppercase;
     color: var(--teal-light);
     margin-bottom: 8px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease 0.05s;
+    transition: color 0.3s ease;
   }
-  .portfolio-card:hover .portfolio-tag { opacity: 1; transform: translateY(0); }
+  .portfolio-card:hover .portfolio-tag { color: var(--cream); }
   .portfolio-sample-tag {
     position: absolute;
     top: 16px;
@@ -838,11 +835,7 @@
     font-size: 22px;
     font-weight: 400;
     color: var(--cream);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease 0.1s;
   }
-  .portfolio-card:hover .portfolio-name { opacity: 1; transform: translateY(0); }
 
   /* ── TESTIMONIALS ── */
   .testimonials {
@@ -1454,6 +1447,13 @@
         <div>
           <div class="price-row-name">Logo design</div>
           <div class="price-row-desc">Simple, single concept, one revision.</div>
+        </div>
+        <div class="price-row-amount">$200</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-row-name">Animations</div>
+          <div class="price-row-desc">Subtle scroll and hover animations, added to any package.</div>
         </div>
         <div class="price-row-amount">$200</div>
       </div>
